@@ -19,7 +19,7 @@ import Questions_Multi from "./components/Math/LinearEquation/Questions_Multi";
 import QuadraticEquation from "./components/Math/QuadraticEquation/QuadraticEquation";
 import MathTickets from "./components/Math/MathTickets";
 import ArabicTickets from "./components/Arabic/ArabicTickets";
-import PhysicsTickets from "./components/Physics/PhysicsTickets"
+//import PhysicsTickets from "./components/Physics/PhysicsTickets"
 import ChemistryTickets from "./components/Chemistry/ChemistryTickets";
 import Example_Rect from "./components/Math/Areas/Example_Rect";
 import Example_Circle from "./components/Math/Areas/Example_Circle";
@@ -138,10 +138,10 @@ function App() {
       <Route path="/questionsAEquals1" element={<Questions_AEquals1 />} />
       <Route path="/quadraticEquation" element={<QuadraticEquation />} />
 
-      {/* */}
+      {/*<Route path="/physicsTickets" element={<PhysicsTickets />} /> */}
       <Route path="/mathtickets" element={<MathTickets />} />
       <Route path="/arabicTickets" element={<ArabicTickets />} />
-      <Route path="/physicsTickets" element={<PhysicsTickets />} />
+      
       <Route path="/chemistryTickets" element={<ChemistryTickets />} />
     </Routes>
   );
