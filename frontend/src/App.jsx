@@ -19,7 +19,7 @@ import Questions_Multi from "./components/Math/LinearEquation/Questions_Multi";
 import QuadraticEquation from "./components/Math/QuadraticEquation/QuadraticEquation";
 import MathTickets from "./components/Math/MathTickets";
 import ArabicTickets from "./components/Arabic/ArabicTickets";
-import PhysicsTickets from "./components/Physics/PhysicsTickets";
+import PhysicsTickets from "./components/Physics/PhysicsTickets"
 import ChemistryTickets from "./components/Chemistry/ChemistryTickets";
 import Example_Rect from "./components/Math/Areas/Example_Rect";
 import Example_Circle from "./components/Math/Areas/Example_Circle";
