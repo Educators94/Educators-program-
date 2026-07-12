@@ -5,7 +5,7 @@ import Example_DiffSquares from "./components/Math/QuadraticEquation/Example_Dif
 import Questions_DiffSquares from "./components/Math/QuadraticEquation/Questions_DiffSquares";
 import Questions_AEquals1 from "./components/Math/QuadraticEquation/Questions_AEquals1";
 import Questions_AGreaterThan1 from "./components/Math/QuadraticEquation/Questions_AGreaterThan1";
-import LinearEquation from "./components/Math/LinearEquation/LinerEquation";
+import LinearEquation from "./components/Math/LinearEquation/LinearEquation";
 import Example_AddSub from "./components/Math/LinearEquation/Example_AddSub";
 import Example_FracMult from "./components/Math/LinearEquation/Example_FracMult";
 import Example_Multi from "./components/Math/LinearEquation/Example_Multi";
@@ -19,7 +19,7 @@ import Questions_Multi from "./components/Math/LinearEquation/Questions_Multi";
 import QuadraticEquation from "./components/Math/QuadraticEquation/QuadraticEquation";
 import MathTickets from "./components/Math/MathTickets";
 import ArabicTickets from "./components/Arabic/ArabicTickets";
-import PhysicsTickets from "./components/Physics/physicsTickets";
+import PhysicsTickets from "./components/Physics/PhysicsTickets";
 import ChemistryTickets from "./components/Chemistry/ChemistryTickets";
 import Example_Rect from "./components/Math/Areas/Example_Rect";
 import Example_Circle from "./components/Math/Areas/Example_Circle";
@@ -50,15 +50,14 @@ import Questions_ThirdLaw from "./components/Physics/NewtonsLaws/Questions_Third
 import Questions_SecondLaw from "./components/Physics/NewtonsLaws/Questions_SecondLaw";
 import Questions_FirstLaw from "./components/Physics/NewtonsLaws/Questions_FirstLaw";
 import Areas from "./components/Math/Areas/Areas";
-import VictorsTickets from "./components/physics/Vectors/VictorsTickets";
-
-import Questions_VerticalComponent from "./components/physics/Vectors/Questions_VerticalComponent";
-import Questions_ResultantComponent from "./components/physics/Vectors/Questions_ResultantComponent";
-import Questions_HorizantalComponent from "./components/physics/Vectors/Questions_HorizantalComponent";
-import Example_VerticalComponent from "./components/physics/Vectors/Example_VerticalComponent";
-import Example_ResultantComponent from "./components/physics/Vectors/Example_ResultantComponent";
-import Example_HorizantalComponent from "./components/physics/Vectors/Example_HorizantalComponent";
-
+// Change "physics" to "Physics" with a capital P
+import VictorsTickets from "./components/Physics/Vectors/VictorsTickets";
+import Questions_VerticalComponent from "./components/Physics/Vectors/Questions_VerticalComponent";
+import Questions_ResultantComponent from "./components/Physics/Vectors/Questions_ResultantComponent";
+import Questions_HorizantalComponent from "./components/Physics/Vectors/Questions_HorizantalComponent";
+import Example_VerticalComponent from "./components/Physics/Vectors/Example_VerticalComponent";
+import Example_ResultantComponent from "./components/Physics/Vectors/Example_ResultantComponent";
+import Example_HorizantalComponent from "./components/Physics/Vectors/Example_HorizantalComponent";
 
 
 import FrontPage from "./components/frontPage";
