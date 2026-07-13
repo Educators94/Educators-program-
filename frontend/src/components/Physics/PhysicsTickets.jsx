@@ -13,7 +13,7 @@ const physicsTickets = [
       "الحركة على خط مستقيم",
       "القوة والاحتكاك",
     ],
-    link:"physicsQuantities"
+    link: "physicsQuantities"
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const physicsTickets = [
     done: true,
     description: "أنواع الطاقة وتحولاتها وقانون حفظ الطاقة.",
     topics: ["الطاقة الحركية", "الطاقة الكامنة", "الشغل", "حفظ الطاقة"],
-    link : "newtonsLaws"
+    link: "newtonsLaws"
   },
   {
     id: 3,
@@ -42,6 +42,7 @@ const physicsTickets = [
       "موجات الصوت",
       "التداخل والانعراج",
     ],
+    link: "waves"
   },
   {
     id: 5,
@@ -54,6 +55,7 @@ const physicsTickets = [
       "الدوائر الكهربائية",
       "القدرة الكهربائية",
     ],
+    link: "electricity"
   },
   {
     id: 6,
@@ -66,6 +68,7 @@ const physicsTickets = [
       "الحث الكهرومغناطيسي",
       "المحول الكهربائي",
     ],
+    link: "magnetism"
   },
   {
     id: 7,
@@ -78,6 +81,7 @@ const physicsTickets = [
       "العدسات والمرايا",
       "الطبيعة المزدوجة للضوء",
     ],
+    link: "light"
   },
   {
     id: 8,
@@ -90,6 +94,7 @@ const physicsTickets = [
       "التركيب الذري",
       "الإشعاع النووي",
     ],
+    link: "modernPhysics"
   },
 ];
 
@@ -210,7 +215,7 @@ export default function PhysicsTickets({ onStart }) {
         <p style={styles.sectionLabel}>التيكتس</p>
         <div style={styles.ticketList}>
           {physicsTickets.map((t) => (
-            <button
+            <div
               key={t.id}
               onClick={() => setSelected(t.id)}
               style={{
@@ -220,22 +225,43 @@ export default function PhysicsTickets({ onStart }) {
                 outline: selected === t.id ? `2px solid ${COLOR}` : "none",
               }}
             >
-              <div>
-                <p style={styles.ticketTitle}>{t.title}</p>
-                <p style={styles.ticketStatus}>
-                  {t.done ? "✅ مكتمل" : "⏳ لم يبدأ"}
-                </p>
+              {/* القسم الأيمن للمحتوى النصي وشارة الرقم مرتبة من اليمين لليسار */}
+              <div style={styles.ticketMainContent}>
+                <div
+                  style={{
+                    ...styles.ticketBadge,
+                    background: t.done ? COLOR : "#e2e8f0",
+                    color: t.done ? "#fff" : "#94a3b8",
+                  }}
+                >
+                  {t.id}
+                </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <p style={styles.ticketTitle}>{t.title}</p>
+                  <p style={styles.ticketStatus}>
+                    {t.done ? "✅ مكتمل" : "⏳ لم يبدأ"}
+                  </p>
+                </div>
               </div>
-              <div
-                style={{
-                  ...styles.ticketBadge,
-                  background: t.done ? COLOR : "#e2e8f0",
-                  color: t.done ? "#fff" : "#94a3b8",
-                }}
-              >
-                {t.id}
-              </div>
-            </button>
+
+              {/* زر الموبايل للبدء أو المراجعة بشكل مباشر */}
+              {isMobile && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (t.link) navigate(`/${t.link}`);
+                  }}
+                  style={{
+                    ...styles.mobileStartBtn,
+                    background: t.done ? "#F1F5F9" : COLOR,
+                    color: t.done ? "#475569" : "#fff",
+                    border: t.done ? "1px solid #CBD5E1" : "none"
+                  }}
+                >
+                  {t.done ? "مراجعة" : "ابدأ"}
+                </button>
+              )}
+            </div>
           ))}
         </div>
       </div>
@@ -278,7 +304,7 @@ export default function PhysicsTickets({ onStart }) {
               </div>
 
               <button
-                onClick={() => navigate(`/${selectedTicket.link}`)}
+                onClick={() => { if (selectedTicket.link) navigate(`/${selectedTicket.link}`); }}
                 style={{ ...styles.startBtn, background: COLOR }}
               >
                 {selectedTicket.done ? "🔁 مراجعة الدرس" : "▶ ابدأ الدرس"}
@@ -490,12 +516,17 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
-    border: "none",
-    cursor: "pointer",
-    textAlign: "right",
+    background: "#fff",
     width: "100%",
     boxSizing: "border-box",
     transition: "all 0.15s",
+  },
+  ticketMainContent: {
+    display: "flex",
+    gap: 12,
+    alignItems: "center",
+    flex: 1,
+    textAlign: "right"
   },
   ticketTitle: {
     margin: 0,
@@ -517,6 +548,16 @@ const styles = {
     justifyContent: "center",
     fontSize: 12,
     fontWeight: 700,
+    flexShrink: 0,
+  },
+  mobileStartBtn: {
+    padding: "6px 16px",
+    borderRadius: "20px",
+    fontSize: "12px",
+    fontWeight: "600",
+    cursor: "pointer",
+    fontFamily: "'Segoe UI', Tahoma, sans-serif",
+    transition: "background 0.2s",
     flexShrink: 0,
   },
 
