@@ -2,14 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const mathTickets = [
-  { id: 1, title: "المعادلة الخطية", done: true, description: "دراسة الأعداد الحقيقية وخصائصها وعملياتها الأساسية.", topics: ["تعريف الأعداد الحقيقية", "الأعداد النسبية واللانسبية", "العمليات على الأعداد الحقيقية", "القيمة المطلقة"],link:"linearEquation" },
-  { id: 2, title: "المعادلات التربيعية", done: true, description: "حل المعادلات التربيعية بطرق مختلفة.", topics: ["التحليل إلى عوامل", "إكمال المربع", "القانون العام", "التمييز"] , link:"quadraticEquation"},
-  { id: 3, title: "مساحة الاشكال", done: true, description: "دراسة المتتاليات الحسابية والهندسية.", topics: ["المتتالية الحسابية", "المتتالية الهندسية", "مجموع المتتالية", "التطبيقات"], link:"areas" },
-  { id: 4, title: "الدوال", done: false, description: "مفهوم الدالة وأنواعها وخصائصها.", topics: ["تعريف الدالة", "مجال الدالة ومداها", "الدوال الخطية", "الدوال التربيعية"] },
-  { id: 5, title: "المثلثات", done: false, description: "النسب المثلثية وتطبيقاتها.", topics: ["الجيب وجيب التمام", "الظل", "قانون الجيب", "قانون الكوساين"] },
-  { id: 6, title: "الاحتمالات", done: false, description: "حساب احتمالات الأحداث.", topics: ["فضاء العينة", "قاعدة الجمع", "قاعدة الضرب", "الاحتمال الشرطي"] },
-  { id: 7, title: "الإحصاء", done: false, description: "تحليل البيانات والمقاييس الإحصائية.", topics: ["المتوسط الحسابي", "الوسيط", "المنوال", "الانحراف المعياري"] },
-  { id: 8, title: "التفاضل والتكامل", done: false, description: "مفاهيم التفاضل والتكامل الأساسية.", topics: ["النهايات", "المشتقة", "قواعد التفاضل", "التكامل"] },
+  { id: 1, title: "المعادلة الخطية", done: true, description: "دراسة الأعداد الحقيقية وخصائصها وعملياتها الأساسية.", topics: ["تعريف الأعداد الحقيقية", "الأعداد النسبية واللانسبية", "العمليات على الأعداد الحقيقية", "القيمة المطلقة"], link: "linearEquation" },
+  { id: 2, title: "المعادلات التربيعية", done: true, description: "حل المعادلات التربيعية بطرق مختلفة.", topics: ["التحليل إلى عوامل", "إكمال المربع", "القانون العام", "التمييز"], link: "quadraticEquation" },
+  { id: 3, title: "مساحة الاشكال", done: true, description: "دراسة المتتاليات الحسابية والهندسية.", topics: ["المتتالية الحسابية", "المتتالية الهندسية", "مجموع المتتالية", "التطبيقات"], link: "areas" },
+  { id: 4, title: "الدوال", done: false, description: "مفهوم الدالة وأنواعها وخصائصها.", topics: ["تعريف الدالة", "مجال الدالة ومداها", "الدوال الخطية", "الدوال التربيعية"], link: "functions" }, // أضفت رابط تجريبي هنا
+  { id: 5, title: "المثلثات", done: false, description: "النسب المثلثية وتطبيقاتها.", topics: ["الجيب وجيب التمام", "الظل", "قانون الجيب", "قانون الكوساين"], link: "triangles" },
+  { id: 6, title: "الاحتمالات", done: false, description: "حساب احتمالات الأحداث.", topics: ["فضاء العينة", "قاعدة الجمع", "قاعدة الضرب", "الاحتمال الشرطي"], link: "probability" },
+  { id: 7, title: "الإحصاء", done: false, description: "تحليل البيانات والمقاييس الإحصائية.", topics: ["المتوسط الحسابي", "الوسيط", "المنوال", "الانحراف المعياري"], link: "statistics" },
+  { id: 8, title: "التفاضل والتكامل", done: false, description: "مفاهيم التفاضل والتكامل الأساسية.", topics: ["النهايات", "المشتقة", "قواعد التفاضل", "التكامل"], link: "calculus" },
 ];
 
 const subjects = [
@@ -80,7 +80,7 @@ export default function MathTickets({ onStart }) {
         <p style={styles.sectionLabel}>التيكتس</p>
         <div style={styles.ticketList}>
           {mathTickets.map((t) => (
-            <button key={t.id}
+            <div key={t.id}
               onClick={() => setSelected(t.id)}
               style={{
                 ...styles.ticketItem,
@@ -88,14 +88,35 @@ export default function MathTickets({ onStart }) {
                 background: selected === t.id ? "#EEF2FF" : "#fff",
                 outline: selected === t.id ? `2px solid ${COLOR}` : "none",
               }}>
-              <div>
-                <p style={styles.ticketTitle}>{t.title}</p>
-                <p style={styles.ticketStatus}>{t.done ? "✅ مكتمل" : "⏳ لم يبدأ"}</p>
+              
+              <div style={{ display: "flex", gap: 12, alignItems: "center", flex: 1 }}>
+                <div style={{ ...styles.ticketBadge, background: t.done ? COLOR : "#e2e8f0", color: t.done ? "#fff" : "#94a3b8" }}>
+                  {t.id}
+                </div>
+                <div>
+                  <p style={styles.ticketTitle}>{t.title}</p>
+                  <p style={styles.ticketStatus}>{t.done ? "✅ مكتمل" : "⏳ لم يبدأ"}</p>
+                </div>
               </div>
-              <div style={{ ...styles.ticketBadge, background: t.done ? COLOR : "#e2e8f0", color: t.done ? "#fff" : "#94a3b8" }}>
-                {t.id}
-              </div>
-            </button>
+
+              {/* زر الانتقال السريع للموبايل فقط */}
+              {isMobile && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); // يمنع تفعيل الـ onClick الخاص بالبطاقة نفسها
+                    navigate(`/${t.link}`);
+                  }}
+                  style={{
+                    ...styles.mobileStartBtn,
+                    background: t.done ? "#F1F5F9" : COLOR,
+                    color: t.done ? "#475569" : "#fff",
+                    border: t.done ? "1px solid #CBD5E1" : "none"
+                  }}
+                >
+                  {t.done ? "مراجعة" : "ابدأ"}
+                </button>
+              )}
+            </div>
           ))}
         </div>
       </div>
@@ -233,10 +254,21 @@ const styles = {
   ticketTitle: { margin: 0, fontSize: 14, fontWeight: 600, color: "#1e293b" },
   ticketStatus: { margin: "3px 0 0", fontSize: 12, color: "#94a3b8" },
   ticketBadge: { width: 28, height: 28, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 700, flexShrink: 0 },
+  
+  // الستايل الجديد لزر الموبايل
+  mobileStartBtn: {
+    padding: "6px 16px",
+    borderRadius: "20px",
+    fontSize: "12px",
+    fontWeight: "600",
+    cursor: "pointer",
+    fontFamily: "'Segoe UI', Tahoma, sans-serif",
+    transition: "background 0.2s",
+  },
 
   // ── Detail Panel ──
   detailPanel: {
-    flex: 1 ,
+    flex: 1,
     maxWidth: 500,
     flexShrink: 0,
     background: "#fff",
